@@ -5,11 +5,11 @@
 
 // ── CONFIG ──────────────────────────────────────────
 const CONFIG = {
-  apkFile:        'Dora.apk',       // ← Put your APK file here with this name
+  apkFile:        'Dora.apk',       
   appName:        'Dora',
   appVersion:     '1.0.0',
   appSize:        '~5.6 MB',
-  goalStep:       100,                      // goal grows by 100 each time
+  goalStep:       100,                      
 };
 
 // ── STATE ──────────────────────────────────────────
@@ -25,6 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   initHamburger();
   initScrollAnimations();
+
+  // 🔄 Auto-Sync Download Count (Check every 10 seconds for other users' downloads)
+  setInterval(() => {
+    syncDownloadsOnly();
+  }, 10000); 
 });
 
 // ══════════════════════════════════
@@ -38,7 +43,7 @@ async function loadGlobalState() {
     totalDownloads = data.count || 0;
   } catch (err) {
     console.error("Counter API Error:", err);
-    totalDownloads = 0; // fallback
+    totalDownloads = 0; 
   }
 
   // Calculate Goal based on current downloads
@@ -48,18 +53,46 @@ async function loadGlobalState() {
   renderAllCounters(totalDownloads);
   updateBar(totalDownloads);
   updateGoalText(totalDownloads);
-  animateCounterTo('statDownloads', totalDownloads);
-  animateCounterTo('heroCount',     totalDownloads);
+  animateHeroCount();
+}
 
-  // Check if goal was just reached → advance goal
-  if (totalDownloads >= currentGoal) {
-    celebrateGoal(); // flash animation
-    currentGoal += CONFIG.goalStep;
-    saveGoal();
+async function syncDownloadsOnly() {
+  try {
+    const response = await fetch(API_URL);
+    const data = await response.json();
+    const newCount = data.count || 0;
+
+    if (newCount > totalDownloads) {
+      totalDownloads = newCount;
+      animateCounterTo('dlCount',       totalDownloads);
+      animateCounterTo('statDownloads', totalDownloads);
+      animateCounterTo('heroCount',     totalDownloads);
+      updateBar(totalDownloads);
+      updateGoalText(totalDownloads);
+    }
+  } catch (err) { }
+}
+
+async function incrementDownload() {
+  try {
+    const response = await fetch(`${API_URL}/increment`);
+    const data = await response.json();
+    totalDownloads = data.count;
+
+    animateCounterTo('dlCount',       totalDownloads);
+    animateCounterTo('statDownloads', totalDownloads);
+    animateCounterTo('heroCount',     totalDownloads);
+
+    if (totalDownloads >= currentGoal) {
+      celebrateGoal();
+      currentGoal += CONFIG.goalStep;
+    }
+
+    updateBar(totalDownloads);
+    updateGoalText(totalDownloads);
+  } catch (err) {
+    console.error("Increment Error:", err);
   }
-
-  updateBar(totalDownloads);
-  updateGoalText(totalDownloads);
 }
 
 // ── RENDER COUNTERS ─────────────────────────────────
@@ -75,7 +108,6 @@ function setCounterText(id, n) {
   if (el) el.textContent = fmt(n);
 }
 
-// Animated count-up on page load (hero counter)
 function animateHeroCount() {
   const el = document.getElementById('heroCount');
   if (!el) return;
@@ -83,7 +115,6 @@ function animateHeroCount() {
   countUp(el, 0, totalDownloads, 1600);
 }
 
-// Generic count-up animation
 function countUp(el, from, to, duration) {
   if (to === 0) { el.textContent = '0'; return; }
   const start = performance.now();
@@ -95,7 +126,6 @@ function countUp(el, from, to, duration) {
   requestAnimationFrame(step);
 }
 
-// Animate a single counter element to the new value
 function animateCounterTo(id, target) {
   const el = document.getElementById(id);
   if (!el) return;
@@ -108,7 +138,6 @@ function updateBar(n) {
   const bar = document.getElementById('dlBar');
   if (!bar) return;
   const pct = Math.min((n / currentGoal) * 100, 100);
-  // Slight delay so the bar animates after page render
   setTimeout(() => { bar.style.width = pct.toFixed(1) + '%'; }, 350);
 
   const pctEl = document.getElementById('dlPct');
@@ -131,7 +160,6 @@ function updateGoalText(n) {
 // ── GOAL CELEBRATION ────────────────────────────────
 
 function celebrateGoal() {
-  // Flash the counter box to celebrate
   const box = document.querySelector('.dl-counter-wrap');
   if (!box) return;
   box.animate(
@@ -142,14 +170,11 @@ function celebrateGoal() {
     ],
     { duration: 900, easing: 'ease-out' }
   );
-
-  // Show a special goal toast
   showCustomToast(`🏆 Goal reached! New goal: ${fmt(currentGoal + CONFIG.goalStep)} downloads!`);
 }
 
 // ══════════════════════════════════
 //  DOWNLOAD HANDLER
-//  Only triggered by the real button
 // ══════════════════════════════════
 
 function handleDownload() {
@@ -160,12 +185,10 @@ function handleDownload() {
 
   if (btn.disabled) return;
 
-  // Lock button during progress
   btn.disabled = true;
   btn.style.opacity   = '0.75';
   btn.style.transform = 'scale(0.98)';
 
-  // Show progress bar
   progWrap.style.display = 'block';
   progWrap.animate(
     [{ opacity: 0, transform: 'translateY(-6px)' }, { opacity: 1, transform: 'translateY(0)' }],
@@ -185,35 +208,24 @@ function handleDownload() {
   const tick = setInterval(() => {
     if (i >= steps.length) {
       clearInterval(tick);
-
       setTimeout(() => {
-        // 1. Trigger the real APK file download
         triggerApkDownload();
-
-        // 2. Count only after the APK download is initiated
         incrementDownload();
-
-        // 3. Show toast
         showToast();
-
-        // 4. Reset UI
         btn.disabled        = false;
         btn.style.opacity   = '1';
         btn.style.transform = '';
         progWrap.style.display = 'none';
         fill.style.width    = '0%';
       }, 500);
-
       return;
     }
-
     fill.style.width = steps[i].w + '%';
     text.textContent = steps[i].msg;
     i++;
   }, 520);
 }
 
-// Trigger browser file download
 function triggerApkDownload() {
   const a    = document.createElement('a');
   a.href     = CONFIG.apkFile;
@@ -234,7 +246,6 @@ function showToast() {
 function showCustomToast(message) {
   const t = document.getElementById('toast');
   if (!t) return;
-  // Update message (keep the checkmark icon, just change text span)
   const span = t.querySelector('span');
   if (span) span.textContent = message;
   t.classList.add('show');
@@ -254,10 +265,6 @@ function initNavbar() {
   onScroll();
 }
 
-// ══════════════════════════════════
-//  HAMBURGER MENU (mobile)
-// ══════════════════════════════════
-
 function initHamburger() {
   const btn  = document.getElementById('hamburger');
   const menu = document.getElementById('mobileNav');
@@ -273,10 +280,6 @@ function closeMobile() {
   document.getElementById('hamburger')?.classList.remove('open');
   document.getElementById('mobileNav')?.classList.remove('open');
 }
-
-// ══════════════════════════════════
-//  SCREENSHOT TABS
-// ══════════════════════════════════
 
 function setTab(index) {
   document.querySelectorAll('.ss-tab').forEach((b, i) =>
@@ -297,12 +300,7 @@ function setTab(index) {
   });
 }
 
-// ══════════════════════════════════
-//  SCROLL REVEAL ANIMATIONS
-// ══════════════════════════════════
-
 function initScrollAnimations() {
-  // Staggered feature cards
   const cards = document.querySelectorAll('.feat-card');
   const cardObs = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -318,7 +316,6 @@ function initScrollAnimations() {
   }, { threshold: 0.1 });
   cards.forEach((c, i) => { c.dataset.delay = i * 80; cardObs.observe(c); });
 
-  // Section fade-up
   const secObs = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
@@ -332,7 +329,6 @@ function initScrollAnimations() {
   document.querySelectorAll('.stats-bar, .dl-card, .ss-phone-wrap, .ss-info')
     .forEach(s => secObs.observe(s));
 
-  // Hero text stagger
   const heroEls = document.querySelectorAll(
     '.store-chip, .hero-title, .hero-desc, .hero-badges, .hero-btns, .hero-counter'
   );
@@ -346,10 +342,6 @@ function initScrollAnimations() {
     }, 120 + i * 90);
   });
 }
-
-// ══════════════════════════════════
-//  UTILITIES
-// ══════════════════════════════════
 
 function fmt(n) {
   if (n >= 1_000_000) return (n / 1_000_000).toFixed(1) + 'M';
