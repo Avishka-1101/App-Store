@@ -9,74 +9,45 @@ const CONFIG = {
   appName:        'Dora',
   appVersion:     '1.0.0',
   appSize:        '~5.6 MB',
-  storageKey:     'a1101_dora_real_count',  // ← NEW key = wipes old fake data
-  goalKey:        'a1101_dora_real_goal',   // ← NEW key
-  dataVersion:    'v2',                     // bump this to reset all data
   goalStep:       100,                      // goal grows by 100 each time
 };
 
 // ── STATE ──────────────────────────────────────────
-let totalDownloads = 0;   // always starts fresh from 0 if never downloaded
-let currentGoal    = 100; // first goal is 100
+let totalDownloads = 0;   
+let currentGoal    = 100; 
+
+// Counter API Keys (Global for everyone)
+const API_URL = 'https://api.counterapi.dev/v1/a1101_store/dora_downloads';
 
 // ── BOOT ───────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
-  loadState();
+  loadGlobalState();
   initNavbar();
   initHamburger();
   initScrollAnimations();
-  animateHeroCount();
 });
 
 // ══════════════════════════════════
-//  STATE MANAGEMENT (localStorage)
-//  - Count = 0 on first ever visit
-//  - Only increases on real download clicks
-//  - Goal auto-advances when reached
+//  GLOBAL STATE MANAGEMENT (API)
 // ══════════════════════════════════
 
-function loadState() {
-  // ── Version guard: wipe any data from older versions ──
-  const storedVersion = localStorage.getItem('a1101_data_version');
-  if (storedVersion !== CONFIG.dataVersion) {
-    // Clear ALL old keys so no fake/seeded numbers survive
-    localStorage.removeItem('a1101_dora_downloads');   // old key v1
-    localStorage.removeItem('a1101_dora_goal');        // old key v1
-    localStorage.removeItem(CONFIG.storageKey);
-    localStorage.removeItem(CONFIG.goalKey);
-    localStorage.setItem('a1101_data_version', CONFIG.dataVersion);
+async function loadGlobalState() {
+  try {
+    const response = await fetch(API_URL);
+    const data = await response.json();
+    totalDownloads = data.count || 0;
+  } catch (err) {
+    console.error("Counter API Error:", err);
+    totalDownloads = 0; // fallback
   }
 
-  // Load real download count — 0 if nobody has ever downloaded
-  const savedCount = localStorage.getItem(CONFIG.storageKey);
-  totalDownloads = savedCount !== null ? parseInt(savedCount, 10) : 0;
-
-  // Load current goal — starts at 100
-  const savedGoal = localStorage.getItem(CONFIG.goalKey);
-  currentGoal = savedGoal !== null ? parseInt(savedGoal, 10) : CONFIG.goalStep;
-
-  // Safety: goal must always be strictly above the count
-  while (totalDownloads >= currentGoal) {
-    currentGoal += CONFIG.goalStep;
-  }
-  saveGoal();
+  // Calculate Goal based on current downloads
+  currentGoal = Math.ceil((totalDownloads + 1) / CONFIG.goalStep) * CONFIG.goalStep;
+  if (currentGoal === 0) currentGoal = CONFIG.goalStep;
 
   renderAllCounters(totalDownloads);
   updateBar(totalDownloads);
   updateGoalText(totalDownloads);
-}
-
-function saveGoal() {
-  localStorage.setItem(CONFIG.goalKey, currentGoal);
-}
-
-// Called ONLY after a real download button click
-function incrementDownload() {
-  totalDownloads += 1;
-  localStorage.setItem(CONFIG.storageKey, totalDownloads);
-
-  // Animate all counters
-  animateCounterTo('dlCount',       totalDownloads);
   animateCounterTo('statDownloads', totalDownloads);
   animateCounterTo('heroCount',     totalDownloads);
 
