@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A1101 Store — Download Dora</title>
+  <meta name="description" content="Download Dora — the smart task management app. Track your streaks, manage lists, and boost productivity. Free APK download." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ══════════════ NAVBAR ══════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="brand">
+        <div class="brand-logo">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <rect x="3" y="3" width="7" height="7" rx="1.5" fill="#F5C518"/>
+            <rect x="14" y="3" width="7" height="7" rx="1.5" fill="#F5C518" opacity="0.6"/>
+            <rect x="3" y="14" width="7" height="7" rx="1.5" fill="#F5C518" opacity="0.6"/>
+            <rect x="14" y="14" width="7" height="7" rx="1.5" fill="#F5C518" opacity="0.3"/>
+          </svg>
+        </div>
+        <span class="brand-name">A1101 Store</span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#screenshots" class="nav-link">Screenshots</a>
+        <a href="#download" class="nav-link">Download</a>
+        <a href="#download" class="nav-cta" id="navCta">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download APK
+        </a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <!-- Mobile menu -->
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#features" class="m-link" onclick="closeMobile()">Features</a>
+      <a href="#screenshots" class="m-link" onclick="closeMobile()">Screenshots</a>
+      <a href="#download" class="m-link" onclick="closeMobile()">Download</a>
+      <a href="#download" class="m-dl-btn" onclick="closeMobile()">Download APK</a>
+    </div>
+  </nav>
+
+  <!-- ══════════════ HERO ══════════════ -->
+  <section class="hero" id="top">
+    <!-- Decorative circles -->
+    <div class="hero-circle c1"></div>
+    <div class="hero-circle c2"></div>
+    <div class="hero-circle c3"></div>
+
+    <div class="hero-inner">
+      <!-- Left text -->
+      <div class="hero-text">
+        <div class="store-chip">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#F5C518"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          A1101 Store · Official Download
+        </div>
+
+        <h1 class="hero-title">Meet <span class="yellow">Dora</span><br/>Your Smart<br/>Task Manager</h1>
+
+        <p class="hero-desc">
+          Organize tasks, track streaks, and stay productive — all in one beautifully designed app. 
+          Completely free, no sign-up required to download.
+        </p>
+
+        <div class="hero-badges">
+          <div class="badge-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Streak Tracking</span>
+          </div>
+          <div class="badge-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span>Smart Calendar</span>
+          </div>
+          <div class="badge-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            <span>Productivity Score</span>
+          </div>
+        </div>
+
+        <div class="hero-btns">
+          <a href="#download" class="btn-yellow" id="heroDownloadBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Free APK
+          </a>
+          <a href="#screenshots" class="btn-outline">
+            View Screenshots
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+        </div>
+
+        <!-- Live counter -->
+        <div class="hero-counter">
+          <div class="hc-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </div>
+          <span class="hc-num" id="heroCount">0</span>
+          <span class="hc-label">people already downloaded Dora</span>
+        </div>
+      </div>
+
+      <!-- Right phone mockups -->
+      <div class="hero-phones">
+        <div class="phone-back">
+          <div class="phone-frame">
+            <div class="ph-bar"></div>
+            <div class="ph-screen">
+              <div class="mock-header">
+                <span class="mock-title">Dora</span>
+                <div class="mock-avatar"></div>
+              </div>
+              <div class="mock-welcome">
+                <p class="mock-date">OCT 24, 2024</p>
+                <p class="mock-name">Welcome 👋</p>
+              </div>
+              <div class="mock-cards">
+                <div class="mock-card">
+                  <div class="mc-icon yellow-icon">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="#F5C518"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                  </div>
+                  <p class="mc-val">7</p>
+                  <p class="mc-key">STREAK</p>
+                </div>
+                <div class="mock-card">
+                  <div class="mc-icon blue-icon">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B8DEF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  </div>
+                  <p class="mc-val">24</p>
+                  <p class="mc-key">COMPLETED</p>
+                </div>
+              </div>
+              <div class="mock-section-title">Next up</div>
+              <div class="mock-task">
+                <div class="mt-dot"></div>
+                <p class="mt-text">Team meeting notes</p>
+              </div>
+              <div class="mock-task">
+                <div class="mt-dot"></div>
+                <p class="mt-text">Review pull requests</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="phone-front">
+          <div class="phone-frame">
+            <div class="ph-bar"></div>
+            <div class="ph-screen">
+              <div class="mock-header">
+                <span class="mock-title">Dora</span>
+                <div class="mock-avatar"></div>
+              </div>
+              <p class="mock-overview">OVERVIEW</p>
+              <p class="mock-prod-title">Productivity <span class="yellow">+12%</span></p>
+              <!-- mini chart -->
+              <div class="mini-chart">
+                <svg width="100%" height="60" viewBox="0 0 200 60" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#F5C518" stop-opacity="0.3"/>
+                      <stop offset="100%" stop-color="#F5C518" stop-opacity="0"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M0 50 C30 45 50 30 80 25 C110 20 130 35 160 20 C180 12 195 15 200 10" fill="none" stroke="#F5C518" stroke-width="2.5"/>
+                  <path d="M0 50 C30 45 50 30 80 25 C110 20 130 35 160 20 C180 12 195 15 200 10 L200 60 L0 60 Z" fill="url(#chartGrad)"/>
+                </svg>
+                <div class="chart-days">
+                  <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+                </div>
+              </div>
+              <div class="mock-stat-row">
+                <div class="msr-item">
+                  <p class="msr-val">24</p>
+                  <p class="msr-key">Total Completed</p>
+                </div>
+                <div class="msr-item">
+                  <p class="msr-val">87%</p>
+                  <p class="msr-key">Score</p>
+                </div>
+              </div>
+              <div class="mock-bottom-nav">
+                <div class="mbn-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  <span>Inbox</span>
+                </div>
+                <div class="mbn-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                  <span>Lists</span>
+                </div>
+                <div class="mbn-item mbn-active">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                  <span class="yellow">Trends</span>
+                </div>
+                <div class="mbn-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  <span>Me</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- floating chips -->
+        <div class="float-chip chip-a">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#F5C518"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          7-Day Streak 🔥
+        </div>
+        <div class="float-chip chip-b">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Task Completed!
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ STATS BAR ══════════════ -->
+  <section class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat-block">
+        <span class="sb-num" id="statDownloads">0</span>
+        <span class="sb-label">Downloads</span>
+      </div>
+      <div class="sb-divider"></div>
+      <div class="stat-block">
+        <span class="sb-num">4.9 ★</span>
+        <span class="sb-label">User Rating</span>
+      </div>
+      <div class="sb-divider"></div>
+      <div class="stat-block">
+        <span class="sb-num">Free</span>
+        <span class="sb-label">No Cost</span>
+      </div>
+      <div class="sb-divider"></div>
+      <div class="stat-block">
+        <span class="sb-num">v1.0</span>
+        <span class="sb-label">Latest Version</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ FEATURES ══════════════ -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-tag">What Dora Offers</div>
+        <h2 class="sec-title">Everything you need to <span class="yellow">stay on track</span></h2>
+        <p class="sec-sub">Built for real productivity — not just habit tracking.</p>
+      </div>
+
+      <div class="feat-grid">
+
+        <div class="feat-card fc-large">
+          <div class="fc-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <h3>Streak Tracking</h3>
+          <p>Build consistent habits. Dora counts every day you complete tasks and keeps your motivation alive with a running streak counter.</p>
+          <div class="fc-demo">
+            <div class="streak-row">
+              <div class="s-day done">M</div>
+              <div class="s-day done">T</div>
+              <div class="s-day done">W</div>
+              <div class="s-day done">T</div>
+              <div class="s-day today">F</div>
+              <div class="s-day">S</div>
+              <div class="s-day">S</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="feat-card">
+          <div class="fc-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h3>Smart Calendar</h3>
+          <p>Plan ahead with a full monthly calendar view. See tasks by day and never miss a deadline.</p>
+        </div>
+
+        <div class="feat-card">
+          <div class="fc-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
+          <h3>Trends & Analytics</h3>
+          <p>Track your weekly productivity score, category breakdown, and growth trends over time.</p>
+        </div>
+
+        <div class="feat-card">
+          <div class="fc-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+          </div>
+          <h3>Task Collections</h3>
+          <p>Organise tasks into Work, Personal, or custom categories — your way, your rules.</p>
+        </div>
+
+        <div class="feat-card fc-large fc-highlight">
+          <div class="fc-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <h3>Priority Inbox</h3>
+          <p>See only what matters most right now. Dora's inbox surfaces your highest-priority tasks automatically, so you always know what to do next.</p>
+          <div class="fc-cta">
+            <a href="#download" class="btn-yellow-sm">Download Now</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ SCREENSHOTS ══════════════ -->
+  <section class="screenshots-section" id="screenshots">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-tag">App Preview</div>
+        <h2 class="sec-title">See Dora in <span class="yellow">action</span></h2>
+        <p class="sec-sub">Clean, minimal, and beautiful — just the way productivity should feel.</p>
+      </div>
+
+      <div class="ss-tabs">
+        <button class="ss-tab active" onclick="setTab(0, this)">Dashboard</button>
+        <button class="ss-tab" onclick="setTab(1, this)">Trends</button>
+        <button class="ss-tab" onclick="setTab(2, this)">Calendar</button>
+        <button class="ss-tab" onclick="setTab(3, this)">Collections</button>
+      </div>
+
+      <div class="ss-content">
+        <div class="ss-panel active" id="panel0">
+          <div class="ss-phone-wrap">
+            <div class="ss-phone">
+              <div class="ss-notch"></div>
+              <div class="ss-screen">
+                <div class="mock-header">
+                  <span class="mock-title">Dora</span>
+                  <div class="mock-avatar"></div>
+                </div>
+                <div class="mock-welcome" style="margin:8px 0 12px">
+                  <p class="mock-date" style="font-size:9px">OCT 24, 2024 &nbsp;·&nbsp; <span style="color:#F5C518">PREMIUM</span></p>
+                  <p class="mock-name" style="font-size:16px">Welcome,<br/>Avishka 👋</p>
+                </div>
+                <div class="mock-cards">
+                  <div class="mock-card">
+                    <div class="mc-icon yellow-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="#F5C518"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+                    <p class="mc-val">7</p><p class="mc-key">STREAK</p>
+                  </div>
+                  <div class="mock-card">
+                    <div class="mc-icon blue-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#5B8DEF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                    <p class="mc-val">24</p><p class="mc-key">DONE</p>
+                  </div>
+                </div>
+                <p class="mock-section-title" style="font-size:10px;margin:10px 0 6px">Next up</p>
+                <div class="mock-task"><div class="mt-dot"></div><p class="mt-text">Team meeting notes</p></div>
+                <div class="mock-task"><div class="mt-dot"></div><p class="mt-text">Review pull requests</p></div>
+                <div class="mock-task"><div class="mt-dot"></div><p class="mt-text">Design feedback</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="ss-info">
+            <h3>Dashboard Overview</h3>
+            <p>Your personal command centre. See your streak, completed count, and upcoming tasks the moment you open Dora. Everything is at a glance — clean and distraction-free.</p>
+            <ul class="ss-list">
+              <li>✦ Daily streak counter</li>
+              <li>✦ Completed task count</li>
+              <li>✦ "Next up" task queue</li>
+              <li>✦ Premium badge support</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="ss-panel" id="panel1">
+          <div class="ss-phone-wrap">
+            <div class="ss-phone">
+              <div class="ss-notch"></div>
+              <div class="ss-screen">
+                <div class="mock-header"><span class="mock-title">Dora</span><div class="mock-avatar"></div></div>
+                <p class="mock-overview" style="margin-top:8px">OVERVIEW</p>
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+                  <p style="font-size:14px;font-weight:800;color:#111">Productivity</p>
+                  <span style="font-size:9px;color:#22c55e;font-weight:700">↑ +12% GROWTH</span>
+                </div>
+                <div class="mini-chart" style="margin:0 0 10px">
+                  <svg width="100%" height="44" viewBox="0 0 200 44" preserveAspectRatio="none">
+                    <defs><linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F5C518" stop-opacity="0.25"/><stop offset="100%" stop-color="#F5C518" stop-opacity="0"/></linearGradient></defs>
+                    <path d="M0 38 C40 32 60 22 90 18 C120 14 140 28 170 14 C185 7 195 10 200 6" fill="none" stroke="#F5C518" stroke-width="2"/>
+                    <path d="M0 38 C40 32 60 22 90 18 C120 14 140 28 170 14 C185 7 195 10 200 6 L200 44 L0 44Z" fill="url(#g2)"/>
+                  </svg>
+                  <div class="chart-days" style="font-size:6px"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div>
+                </div>
+                <div class="mock-stat-row">
+                  <div class="msr-item"><p class="msr-val">24</p><p class="msr-key">Total Done</p></div>
+                  <div class="msr-item"><p class="msr-val">87%</p><p class="msr-key">Score</p></div>
+                </div>
+                <div class="mock-bottom-nav">
+                  <div class="mbn-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>Inbox</span></div>
+                  <div class="mbn-item mbn-active"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><span class="yellow">Trends</span></div>
+                  <div class="mbn-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Me</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ss-info">
+            <h3>Trends & Analytics</h3>
+            <p>Watch your productivity grow week over week. The Trends screen shows your score, growth percentage, and a beautiful weekly performance chart.</p>
+            <ul class="ss-list">
+              <li>✦ Weekly performance chart</li>
+              <li>✦ Productivity score %</li>
+              <li>✦ Growth percentage</li>
+              <li>✦ Category breakdown</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="ss-panel" id="panel2">
+          <div class="ss-phone-wrap">
+            <div class="ss-phone">
+              <div class="ss-notch"></div>
+              <div class="ss-screen">
+                <div class="mock-header"><span class="mock-title">Dora</span><div class="mock-avatar"></div></div>
+                <div style="display:flex;align-items:center;justify-content:space-between;margin:8px 0 10px">
+                  <p style="font-size:15px;font-weight:800;color:#111">March 2026</p>
+                  <div style="display:flex;gap:6px"><span style="font-size:11px;color:#888">‹</span><span style="font-size:11px;color:#888">›</span></div>
+                </div>
+                <div class="mini-cal">
+                  <div class="cal-head"><span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span></div>
+                  <div class="cal-body">
+                    <span></span><span></span><span></span><span></span><span></span><span></span><span>1</span>
+                    <span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+                    <span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span>
+                    <span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span>
+                    <span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span>
+                    <span class="cal-today">30</span><span>31</span>
+                  </div>
+                </div>
+                <div style="margin-top:8px;font-size:9px;font-weight:700;color:#111">Monday, Mar 30 <span style="color:#F5C518;margin-left:4px">2 TASKS</span></div>
+                <div class="mock-task" style="margin-top:6px"><div class="mt-dot"></div><p class="mt-text">Morning standup</p></div>
+                <div class="mock-task"><div class="mt-dot"></div><p class="mt-text">Submit report</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="ss-info">
+            <h3>Smart Calendar</h3>
+            <p>Plan your month visually. Tap any day to see tasks assigned to it. The highlighted current day keeps you grounded in the present.</p>
+            <ul class="ss-list">
+              <li>✦ Full monthly calendar</li>
+              <li>✦ Day-level task view</li>
+              <li>✦ Quick task add button</li>
+              <li>✦ Today highlight</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="ss-panel" id="panel3">
+          <div class="ss-phone-wrap">
+            <div class="ss-phone">
+              <div class="ss-notch"></div>
+              <div class="ss-screen">
+                <div class="mock-header"><span class="mock-title">Dora</span><div class="mock-avatar"></div></div>
+                <div style="margin:8px 0 12px">
+                  <p style="font-size:8px;color:#888;font-weight:600;letter-spacing:0.5px">MY COLLECTIONS</p>
+                  <p style="font-size:16px;font-weight:800;color:#111;line-height:1.2">Task<br/>Collections</p>
+                </div>
+                <div class="coll-item">
+                  <div class="coll-icon coll-work">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#5B8DEF" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                  </div>
+                  <div><p class="coll-name">Work</p><p class="coll-sub">3 tasks</p></div>
+                </div>
+                <div class="coll-item">
+                  <div class="coll-icon coll-personal">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                  </div>
+                  <div><p class="coll-name">Personal</p><p class="coll-sub">5 tasks</p></div>
+                </div>
+                <div class="coll-item">
+                  <div class="coll-icon" style="background:#fff9e0;border:1px solid #F5C518">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  </div>
+                  <div><p class="coll-name">Goals</p><p class="coll-sub">2 tasks</p></div>
+                </div>
+                <div class="add-coll-btn">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  Add Collection
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ss-info">
+            <h3>Task Collections</h3>
+            <p>Group tasks into meaningful categories. Create collections for Work, Personal, Goals — or anything you need. Stay organised without complexity.</p>
+            <ul class="ss-list">
+              <li>✦ Custom collections</li>
+              <li>✦ Color-coded categories</li>
+              <li>✦ Task count per list</li>
+              <li>✦ Easy reordering</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ DOWNLOAD ══════════════ -->
+  <section class="dl-section" id="download">
+    <div class="dl-blob b1"></div>
+    <div class="dl-blob b2"></div>
+    <div class="container">
+      <div class="dl-card">
+
+        <!-- App identity -->
+        <div class="dl-top">
+          <img src="dora-icon.png" alt="Dora App Icon" class="dl-icon-img" />
+          <div class="dl-app-info">
+            <h2 class="dl-app-name">Dora</h2>
+            <p class="dl-app-by">by A1101 Store</p>
+            <div class="dl-tags">
+              <span class="dl-tag">Task Manager</span>
+              <span class="dl-tag">Free</span>
+              <span class="dl-tag">Android APK</span>
+            </div>
+          </div>
+          <div class="dl-rating-box">
+            <span class="dl-stars">★★★★★</span>
+            <span class="dl-rating-num">4.9</span>
+          </div>
+        </div>
+
+        <!-- Download counter -->
+        <div class="dl-counter-wrap">
+          <div class="dlc-left">
+            <div class="dlc-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </div>
+            <div>
+              <div class="dlc-number" id="dlCount">0</div>
+              <div class="dlc-label">Total Downloads</div>
+            </div>
+          </div>
+          <div class="dlc-right">
+            <div class="dlc-goal" id="dlGoal">Goal: 1,000</div>
+            <div class="dlc-bar-track">
+              <div class="dlc-bar-fill" id="dlBar"></div>
+            </div>
+            <div class="dlc-pct" id="dlPct">0% Complete</div>
+          </div>
+        </div>
+
+        <!-- Main button -->
+        <button class="mega-btn" id="mainDlBtn" onclick="handleDownload()">
+          <div class="mb-shine"></div>
+          <div class="mb-inner">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <div>
+              <div class="mb-title">Download Dora APK</div>
+              <div class="mb-sub">Free · v1.0.0 · 5.6 MB · Android 5.0+</div>
+            </div>
+          </div>
+        </button>
+
+        <!-- Progress bar (hidden until download) -->
+        <div class="dl-progress" id="dlProgress" style="display:none">
+          <div class="dlp-track"><div class="dlp-fill" id="dlpFill"></div></div>
+          <p class="dlp-text" id="dlpText">Preparing…</p>
+        </div>
+
+        <div class="dl-safety">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>100% safe &amp; verified · No ads · No account required</span>
+        </div>
+
+        <!-- Install guide -->
+        <div class="install-guide">
+          <h3 class="ig-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            How to Install
+          </h3>
+          <div class="ig-steps">
+            <div class="ig-step">
+              <div class="ig-num">1</div>
+              <div class="ig-text">Tap <strong>Download Dora APK</strong> and wait for the file to save</div>
+            </div>
+            <div class="ig-step">
+              <div class="ig-num">2</div>
+              <div class="ig-text">Go to <strong>Settings → Security</strong> → enable <em>Install unknown apps</em></div>
+            </div>
+            <div class="ig-step">
+              <div class="ig-num">3</div>
+              <div class="ig-text">Open the downloaded <strong>Dora.apk</strong> file and tap <em>Install</em></div>
+            </div>
+            <div class="ig-step">
+              <div class="ig-num">4</div>
+              <div class="ig-text">Launch Dora and start organising your tasks 🚀</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="ft-brand">
+        <div class="brand-logo" style="width:32px;height:32px">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <rect x="3" y="3" width="7" height="7" rx="1.5" fill="#F5C518"/>
+            <rect x="14" y="3" width="7" height="7" rx="1.5" fill="#F5C518" opacity="0.6"/>
+            <rect x="3" y="14" width="7" height="7" rx="1.5" fill="#F5C518" opacity="0.6"/>
+            <rect x="14" y="14" width="7" height="7" rx="1.5" fill="#F5C518" opacity="0.3"/>
+          </svg>
+        </div>
+        <div>
+          <p class="ft-name">A1101 Store</p>
+          <p class="ft-sub">Official download hub for Dora</p>
+        </div>
+      </div>
+      <p class="ft-copy">© 2026 A1101 Store · Made with ☀️</p>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div class="toast" id="toast">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    Download started! Check your Downloads folder.
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
